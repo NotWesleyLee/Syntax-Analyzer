@@ -1,0 +1,8 @@
+#
+boolean valid;
+
+if(5+5 > 2)
+valid = False;
+else
+return 6;
+endif

@@ -1,0 +1,21 @@
+function helloWorld()
+{
+    get(fileNamedSue);
+
+    put(fileNamedSally);
+}
+
+#
+
+real who, what, where;
+
+while(who > where)
+{
+
+    put(2+2);
+    if (what < who)
+    {
+        put(who_what_where_why);
+    } 
+    endif
+}

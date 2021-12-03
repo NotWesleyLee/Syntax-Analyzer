@@ -1,0 +1,78 @@
+Token: OPERATOR       Lexeme: #              Line: 1
+<Rat21F>  ::=   <Opt Function Definitions>   #  <Opt Declaration List>  <Statement List>  # 
+<Opt Function Definitions> ::= <Function Definitions> | <Empty>
+<Empty> ::= epsilon
+Token: IDENTIFIER     Lexeme: boolean        Line: 2
+<Opt Declaration List> ::= <Declaration List> | <Empty>
+<Declaration List> := <Declaration> ; | <Declaration> ; <Declaration List>
+<Declaration> ::= <Qualifier> <IDs>
+<Qualifier> ::= integer | boolean | real
+Token: IDENTIFIER     Lexeme: valid          Line: 2
+<IDs> ::=  <IDENTIFIER> | <IDENTIFIER>, <IDs>
+Token: SEPERATOR      Lexeme: ;              Line: 2
+Token: KEYWORD        Lexeme: if             Line: 4
+<Statement List> ::= <Statement> | <Statement> <Statement List>
+<Statement> ::=  <Compound> | <Assign> | <If> |  <Return> | <Print> | <Scan> | <While>
+<If> ::= if ( <Condition> ) <Statement > <ifPrime>
+Token: SEPERATOR      Lexeme: (              Line: 4
+Token: INTEGER        Lexeme: 5              Line: 4
+<Condition> ::= <Expression> <Relop> <Expression>
+<Expression> ::= <Term> <ExpressionPrime>
+<Term> ::= <Factor> <TermPrime>
+<Factor> ::= - <Primary> | <Primary>
+<Primary> ::= <IDENTIFIER> | <INTEGER> | <IDENTIFIER> (<IDs>) | ( <Expression> ) | <REAL> | true | false
+Token: OPERATOR       Lexeme: +              Line: 4
+<TermPrime> ::= * <Factor> <TermPrime> | / <Factor> <TermPrime> | <empty>
+<Empty> ::= epsilon
+<ExpressionPrime> ::= + <Term> <ExpressionPrime> | - <Term> <ExpressionPrime> | <empty>
+Token: INTEGER        Lexeme: 5              Line: 4
+<Term> ::= <Factor> <TermPrime>
+<Factor> ::= - <Primary> | <Primary>
+<Primary> ::= <IDENTIFIER> | <INTEGER> | <IDENTIFIER> (<IDs>) | ( <Expression> ) | <REAL> | true | false
+Token: OPERATOR       Lexeme: >              Line: 4
+<TermPrime> ::= * <Factor> <TermPrime> | / <Factor> <TermPrime> | <empty>
+<Empty> ::= epsilon
+<ExpressionPrime> ::= + <Term> <ExpressionPrime> | - <Term> <ExpressionPrime> | <empty>
+<Empty> ::= epsilon
+<Relop> ::=   == |  !=  |   >   | <   |  <=   | =>
+Token: INTEGER        Lexeme: 2              Line: 4
+<Expression> ::= <Term> <ExpressionPrime>
+<Term> ::= <Factor> <TermPrime>
+<Factor> ::= - <Primary> | <Primary>
+<Primary> ::= <IDENTIFIER> | <INTEGER> | <IDENTIFIER> (<IDs>) | ( <Expression> ) | <REAL> | true | false
+Token: SEPERATOR      Lexeme: )              Line: 4
+<TermPrime> ::= * <Factor> <TermPrime> | / <Factor> <TermPrime> | <empty>
+<Empty> ::= epsilon
+<ExpressionPrime> ::= + <Term> <ExpressionPrime> | - <Term> <ExpressionPrime> | <empty>
+<Empty> ::= epsilon
+Token: IDENTIFIER     Lexeme: valid          Line: 5
+<Statement> ::=  <Compound> | <Assign> | <If> |  <Return> | <Print> | <Scan> | <While>
+<Assign> ::=   <IDENTIFIER> = <Expression> ;
+Token: OPERATOR       Lexeme: =              Line: 5
+Token: IDENTIFIER     Lexeme: False          Line: 5
+<Expression> ::= <Term> <ExpressionPrime>
+<Term> ::= <Factor> <TermPrime>
+<Factor> ::= - <Primary> | <Primary>
+<Primary> ::= <IDENTIFIER> | <INTEGER> | <IDENTIFIER> (<IDs>) | ( <Expression> ) | <REAL> | true | false
+Token: SEPERATOR      Lexeme: ;              Line: 5
+<TermPrime> ::= * <Factor> <TermPrime> | / <Factor> <TermPrime> | <empty>
+<Empty> ::= epsilon
+<ExpressionPrime> ::= + <Term> <ExpressionPrime> | - <Term> <ExpressionPrime> | <empty>
+<Empty> ::= epsilon
+Token: KEYWORD        Lexeme: else           Line: 6
+<ifPrime> ::= endif | else <Statement> endif
+Token: KEYWORD        Lexeme: return         Line: 7
+<Statement> ::=  <Compound> | <Assign> | <If> |  <Return> | <Print> | <Scan> | <While>
+<Return> ::=  return ; |  return <Expression> ;
+Token: INTEGER        Lexeme: 6              Line: 7
+<Expression> ::= <Term> <ExpressionPrime>
+<Term> ::= <Factor> <TermPrime>
+<Factor> ::= - <Primary> | <Primary>
+<Primary> ::= <IDENTIFIER> | <INTEGER> | <IDENTIFIER> (<IDs>) | ( <Expression> ) | <REAL> | true | false
+Token: SEPERATOR      Lexeme: ;              Line: 7
+<TermPrime> ::= * <Factor> <TermPrime> | / <Factor> <TermPrime> | <empty>
+<Empty> ::= epsilon
+<ExpressionPrime> ::= + <Term> <ExpressionPrime> | - <Term> <ExpressionPrime> | <empty>
+<Empty> ::= epsilon
+Token: KEYWORD        Lexeme: endif          Line: 8
+Token: END            Lexeme:                Line: 8

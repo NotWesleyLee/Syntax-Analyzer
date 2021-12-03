@@ -1,0 +1,155 @@
+Token: KEYWORD        Lexeme: function       Line: 1
+<Rat21F>  ::=   <Opt Function Definitions>   #  <Opt Declaration List>  <Statement List>  # 
+<Opt Function Definitions> ::= <Function Definitions> | <Empty>
+<Function Definitions> ::= <Function> | <Function> <Function Definitions>
+<Function> ::= function  <IDENTIFIER> ( <Opt Parameter List> ) <Opt Declaration List>  <Body>
+Token: IDENTIFIER     Lexeme: helloWorld     Line: 1
+Token: SEPERATOR      Lexeme: (              Line: 1
+Token: SEPERATOR      Lexeme: )              Line: 1
+<Opt Parameter List> ::=  <Parameter List> | <Empty>
+<Empty> ::= epsilon
+Token: SEPERATOR      Lexeme: {              Line: 2
+<Opt Declaration List> ::= <Declaration List> | <Empty>
+<Empty> ::= epsilon
+<Body>  ::=  {  < Statement List>  }
+Token: KEYWORD        Lexeme: get            Line: 3
+<Statement List> ::= <Statement> | <Statement> <Statement List>
+<Statement> ::=  <Compound> | <Assign> | <If> |  <Return> | <Print> | <Scan> | <While>
+<Scan> ::= get ( <IDs> );
+Token: SEPERATOR      Lexeme: (              Line: 3
+Token: IDENTIFIER     Lexeme: fileNamedSue   Line: 3
+<IDs> ::=  <IDENTIFIER> | <IDENTIFIER>, <IDs>
+Token: SEPERATOR      Lexeme: )              Line: 3
+Token: SEPERATOR      Lexeme: ;              Line: 3
+Token: KEYWORD        Lexeme: put            Line: 5
+<Statement> ::=  <Compound> | <Assign> | <If> |  <Return> | <Print> | <Scan> | <While>
+<Print> ::=   put ( <Expression>);
+Token: SEPERATOR      Lexeme: (              Line: 5
+Token: IDENTIFIER     Lexeme: fileNamedSally Line: 5
+<Expression> ::= <Term> <ExpressionPrime>
+<Term> ::= <Factor> <TermPrime>
+<Factor> ::= - <Primary> | <Primary>
+<Primary> ::= <IDENTIFIER> | <INTEGER> | <IDENTIFIER> (<IDs>) | ( <Expression> ) | <REAL> | true | false
+Token: SEPERATOR      Lexeme: )              Line: 5
+<TermPrime> ::= * <Factor> <TermPrime> | / <Factor> <TermPrime> | <empty>
+<Empty> ::= epsilon
+<ExpressionPrime> ::= + <Term> <ExpressionPrime> | - <Term> <ExpressionPrime> | <empty>
+<Empty> ::= epsilon
+Token: SEPERATOR      Lexeme: ;              Line: 5
+Token: SEPERATOR      Lexeme: }              Line: 6
+Token: OPERATOR       Lexeme: #              Line: 8
+Token: KEYWORD        Lexeme: real           Line: 10
+<Opt Declaration List> ::= <Declaration List> | <Empty>
+<Declaration List> := <Declaration> ; | <Declaration> ; <Declaration List>
+<Declaration> ::= <Qualifier> <IDs>
+<Qualifier> ::= integer | boolean | real
+Token: IDENTIFIER     Lexeme: who            Line: 10
+<IDs> ::=  <IDENTIFIER> | <IDENTIFIER>, <IDs>
+Token: SEPERATOR      Lexeme: ,              Line: 10
+Token: IDENTIFIER     Lexeme: what           Line: 10
+Token: SEPERATOR      Lexeme: ,              Line: 10
+Token: IDENTIFIER     Lexeme: where          Line: 10
+Token: SEPERATOR      Lexeme: ;              Line: 10
+Token: KEYWORD        Lexeme: while          Line: 12
+<Statement List> ::= <Statement> | <Statement> <Statement List>
+<Statement> ::=  <Compound> | <Assign> | <If> |  <Return> | <Print> | <Scan> | <While>
+<While> ::= while ( <Condition>  )  <Statement>
+Token: SEPERATOR      Lexeme: (              Line: 12
+Token: IDENTIFIER     Lexeme: who            Line: 12
+<Condition> ::= <Expression> <Relop> <Expression>
+<Expression> ::= <Term> <ExpressionPrime>
+<Term> ::= <Factor> <TermPrime>
+<Factor> ::= - <Primary> | <Primary>
+<Primary> ::= <IDENTIFIER> | <INTEGER> | <IDENTIFIER> (<IDs>) | ( <Expression> ) | <REAL> | true | false
+Token: OPERATOR       Lexeme: >              Line: 12
+<TermPrime> ::= * <Factor> <TermPrime> | / <Factor> <TermPrime> | <empty>
+<Empty> ::= epsilon
+<ExpressionPrime> ::= + <Term> <ExpressionPrime> | - <Term> <ExpressionPrime> | <empty>
+<Empty> ::= epsilon
+<Relop> ::=   == |  !=  |   >   | <   |  <=   | =>
+Token: IDENTIFIER     Lexeme: where          Line: 12
+<Expression> ::= <Term> <ExpressionPrime>
+<Term> ::= <Factor> <TermPrime>
+<Factor> ::= - <Primary> | <Primary>
+<Primary> ::= <IDENTIFIER> | <INTEGER> | <IDENTIFIER> (<IDs>) | ( <Expression> ) | <REAL> | true | false
+Token: SEPERATOR      Lexeme: )              Line: 12
+<TermPrime> ::= * <Factor> <TermPrime> | / <Factor> <TermPrime> | <empty>
+<Empty> ::= epsilon
+<ExpressionPrime> ::= + <Term> <ExpressionPrime> | - <Term> <ExpressionPrime> | <empty>
+<Empty> ::= epsilon
+Token: SEPERATOR      Lexeme: {              Line: 13
+<Statement> ::=  <Compound> | <Assign> | <If> |  <Return> | <Print> | <Scan> | <While>
+<Compound> ::= {  <Statement List>  }
+Token: KEYWORD        Lexeme: put            Line: 15
+<Statement List> ::= <Statement> | <Statement> <Statement List>
+<Statement> ::=  <Compound> | <Assign> | <If> |  <Return> | <Print> | <Scan> | <While>
+<Print> ::=   put ( <Expression>);
+Token: SEPERATOR      Lexeme: (              Line: 15
+Token: INTEGER        Lexeme: 2              Line: 15
+<Expression> ::= <Term> <ExpressionPrime>
+<Term> ::= <Factor> <TermPrime>
+<Factor> ::= - <Primary> | <Primary>
+<Primary> ::= <IDENTIFIER> | <INTEGER> | <IDENTIFIER> (<IDs>) | ( <Expression> ) | <REAL> | true | false
+Token: OPERATOR       Lexeme: +              Line: 15
+<TermPrime> ::= * <Factor> <TermPrime> | / <Factor> <TermPrime> | <empty>
+<Empty> ::= epsilon
+<ExpressionPrime> ::= + <Term> <ExpressionPrime> | - <Term> <ExpressionPrime> | <empty>
+Token: INTEGER        Lexeme: 2              Line: 15
+<Term> ::= <Factor> <TermPrime>
+<Factor> ::= - <Primary> | <Primary>
+<Primary> ::= <IDENTIFIER> | <INTEGER> | <IDENTIFIER> (<IDs>) | ( <Expression> ) | <REAL> | true | false
+Token: SEPERATOR      Lexeme: )              Line: 15
+<TermPrime> ::= * <Factor> <TermPrime> | / <Factor> <TermPrime> | <empty>
+<Empty> ::= epsilon
+<ExpressionPrime> ::= + <Term> <ExpressionPrime> | - <Term> <ExpressionPrime> | <empty>
+<Empty> ::= epsilon
+Token: SEPERATOR      Lexeme: ;              Line: 15
+Token: KEYWORD        Lexeme: if             Line: 16
+<Statement> ::=  <Compound> | <Assign> | <If> |  <Return> | <Print> | <Scan> | <While>
+<If> ::= if ( <Condition> ) <Statement > <ifPrime>
+Token: SEPERATOR      Lexeme: (              Line: 16
+Token: IDENTIFIER     Lexeme: what           Line: 16
+<Condition> ::= <Expression> <Relop> <Expression>
+<Expression> ::= <Term> <ExpressionPrime>
+<Term> ::= <Factor> <TermPrime>
+<Factor> ::= - <Primary> | <Primary>
+<Primary> ::= <IDENTIFIER> | <INTEGER> | <IDENTIFIER> (<IDs>) | ( <Expression> ) | <REAL> | true | false
+Token: OPERATOR       Lexeme: <              Line: 16
+<TermPrime> ::= * <Factor> <TermPrime> | / <Factor> <TermPrime> | <empty>
+<Empty> ::= epsilon
+<ExpressionPrime> ::= + <Term> <ExpressionPrime> | - <Term> <ExpressionPrime> | <empty>
+<Empty> ::= epsilon
+<Relop> ::=   == |  !=  |   >   | <   |  <=   | =>
+Token: IDENTIFIER     Lexeme: who            Line: 16
+<Expression> ::= <Term> <ExpressionPrime>
+<Term> ::= <Factor> <TermPrime>
+<Factor> ::= - <Primary> | <Primary>
+<Primary> ::= <IDENTIFIER> | <INTEGER> | <IDENTIFIER> (<IDs>) | ( <Expression> ) | <REAL> | true | false
+Token: SEPERATOR      Lexeme: )              Line: 16
+<TermPrime> ::= * <Factor> <TermPrime> | / <Factor> <TermPrime> | <empty>
+<Empty> ::= epsilon
+<ExpressionPrime> ::= + <Term> <ExpressionPrime> | - <Term> <ExpressionPrime> | <empty>
+<Empty> ::= epsilon
+Token: SEPERATOR      Lexeme: {              Line: 17
+<Statement> ::=  <Compound> | <Assign> | <If> |  <Return> | <Print> | <Scan> | <While>
+<Compound> ::= {  <Statement List>  }
+Token: KEYWORD        Lexeme: put            Line: 18
+<Statement List> ::= <Statement> | <Statement> <Statement List>
+<Statement> ::=  <Compound> | <Assign> | <If> |  <Return> | <Print> | <Scan> | <While>
+<Print> ::=   put ( <Expression>);
+Token: SEPERATOR      Lexeme: (              Line: 18
+Token: IDENTIFIER     Lexeme: who_what_where_why Line: 18
+<Expression> ::= <Term> <ExpressionPrime>
+<Term> ::= <Factor> <TermPrime>
+<Factor> ::= - <Primary> | <Primary>
+<Primary> ::= <IDENTIFIER> | <INTEGER> | <IDENTIFIER> (<IDs>) | ( <Expression> ) | <REAL> | true | false
+Token: SEPERATOR      Lexeme: )              Line: 18
+<TermPrime> ::= * <Factor> <TermPrime> | / <Factor> <TermPrime> | <empty>
+<Empty> ::= epsilon
+<ExpressionPrime> ::= + <Term> <ExpressionPrime> | - <Term> <ExpressionPrime> | <empty>
+<Empty> ::= epsilon
+Token: SEPERATOR      Lexeme: ;              Line: 18
+Token: SEPERATOR      Lexeme: }              Line: 19
+Token: KEYWORD        Lexeme: endif          Line: 20
+<ifPrime> ::= endif | else <Statement> endif
+Token: END            Lexeme: }              Line: 21
